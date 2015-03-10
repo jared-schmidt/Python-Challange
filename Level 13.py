@@ -5,7 +5,7 @@ import requests
 
 # print(req.content)
 
-from PIL import Image
+# from PIL import Image
 
 # FROM level 12
 # http://www.pythonchallenge.com/pc/return/evil4.jpg
@@ -15,14 +15,23 @@ from PIL import Image
 # http://www.pythonchallenge.com/pc/return/remote.html
 # the phone is remote
 
-im = Image.open('bert.gif')
-im = im.convert('RGB')
-for y in range(im.size[1]):
-    for x in range(im.size[0]):
-        cood = (x, y)
-        p = im.getpixel(cood)
-        print(p)
+# http://www.pythonchallenge.com/pc/return/bert.gif
+# im = Image.open('bert.gif')
+# im = im.convert('RGB')
+# for y in range(im.size[1]):
+    # for x in range(im.size[0]):
+        # cood = (x, y)
+        # p = im.getpixel(cood)
+        # print(p)
 # print(im.tobytes())
 
 
 # phone that <remote /> evil
+
+import xmlrpclib
+
+server = xmlrpclib.Server('http://www.pythonchallenge.com/pc/phonebook.php')
+# print (server.system.listMethods())
+print (server.phone('Evil'))
+print (server.phone('Bert'))
+
